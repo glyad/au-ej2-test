@@ -6,7 +6,10 @@ function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
         .feature(aurelia_pal_1.PLATFORM.moduleName('resources/index'));
-    aurelia.use.plugin(aurelia_pal_1.PLATFORM.moduleName('au-ej2-plugin'));
+    aurelia.use
+        .plugin(aurelia_pal_1.PLATFORM.moduleName('au-ej2-plugin'))
+        .plugin(aurelia_pal_1.PLATFORM.moduleName('aurelia-highlightjs'))
+        .plugin(aurelia_pal_1.PLATFORM.moduleName('aurelia-dynamic-html'));
     aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
     if (environment.testing) {
         aurelia.use.plugin(aurelia_pal_1.PLATFORM.moduleName('aurelia-testing'));

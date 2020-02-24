@@ -1,5 +1,92 @@
 <template>
+  <require from="highlight.js/styles/vs2015.css"></require>
   <h1>${message}</h1>
 
   <ej-button primary="true" content="message"></ej-button>
+
+  <hr>
+<!-- <iframe style="width: 100%; height: 500px; display: block;"
+ src="https://glyad.github.io/aurelia-ej2-plugin/#/button-types-and-styles"> 
+  
+</iframe> -->
+  <!-- <tabs>
+    <tab header="Sources">
+      <div>
+        <tabs>
+          <tab header="index.html">
+            <div style="background-color: #1e1e1e; display: block; height: 400px; overflow: scroll;">
+              <hljs language="handlebars">
+&lt;div class=&quot;entry&quot;&gt;
+  {{!-- only show if author exists --}}
+  {{#if author}}
+    &lt;h1&gt;{{firstName}} {{lastName}}&lt;/h1&gt;
+  {{/if}}
+&lt;/div&gt;
+              </hljs>
+            </div>
+          </tab>
+          <tab header="index.ts">
+            <div style="background-color: #1e1e1e; display: block; height: 400px; overflow: scroll;">
+              <hljs language="typescript">
+class MyClass {
+  public static myValue: string;
+  constructor(init: string) {
+    this.myValue = init;
+  }
+}
+import fs = require(&quot;fs&quot;);
+module MyModule {
+  export interface MyInterface extends Other {
+    myProperty: any;
+  }
+}
+declare magicNumber number;
+myArray.forEach(() =&gt; { }); // fat arrow syntax
+              </hljs>
+            </div>
+          </tab>
+        </tabs>
+      </div>      
+    </tab>
+    <tab header="Preview">
+      <div style="display: block; height: 400px; overflow: scroll;">
+        <dynamic-html html.bind="html"></dynamic-html>
+      </div>
+    </tab>
+    
+  </tabs> -->
+
+  <hr>
+
+  <tabs>
+    <tab header="Sources">
+      <div >
+        <tabs>
+          <tab header="index.html">
+            <div style="background-color: #1e1e1e; height: 400px; overflow: hidden;">
+              <monaco-editor options.bind="{language: 'html'}" code.bind="html"></monaco-editor>              
+            </div>
+          </tab>
+          <tab header="index.ts">
+            <div style="background-color: #1e1e1e; height: 400px; overflow: hidden;">
+              <monaco-editor options.bind="{language: 'javascript'}" code.bind="jsRaw"></monaco-editor>              
+            </div>
+          </tab>
+        </tabs>
+      </div>      
+    </tab>
+    <tab header="Preview">
+      <div style="display: block; height: 400px; overflow: scroll;">
+        <dynamic-html html.bind="html" context.bind="context" render-errors=true>
+        </dynamic-html>
+      </div>
+    </tab>
+    
+  </tabs>
+
+  <hr>
+
+    
+
+    <!-- <pre><code class="hljs handlebars" innerhtml.bind="code"></code></pre> -->
 </template>
